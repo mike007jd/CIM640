@@ -6,4 +6,4 @@
 
 Here is another message
 
-[Click here for google](http://www.google.com)
+### [Click here for google](http://www.google.com)
