@@ -1,10 +1,8 @@
 # CIM640
 
-## This is slightly smaller
+## About Me
 
-##### This is the Smallest
 
-Here is another message
 
 ### [Click here for google](http://www.google.com)
 
