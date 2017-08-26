@@ -3,9 +3,9 @@
 ## About Me
 
 ### Brief Bio
-This is Haosheng Li from China. I love every food and the nature. I make games and animations. Wish to have a great semester with everyone. 
+This is Haosheng Li from China. Graduated from Michigan state university. I love every food and the nature. I make games and animations. Wish to have a great semester with everyone. 
 
-![This is me](http://imgur.com/27hxFr5)
+![This is me](http://i.imgur.com/27hxFr5.jpg)
 
 ### [Click here for My Website](http://lihaoshe.wixsite.com/website)
 
