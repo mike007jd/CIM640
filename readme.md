@@ -4,7 +4,7 @@
 
 This is Haosheng Li from China. Graduated from Michigan state university. I love every food and the nature. I make games and animations. Wish to have a great semester with everyone. 
 
-### [Click here for My Website](http://lihaoshe.wixsite.com/website)
+### [Click here for My porfolio](http://lihaoshe.wixsite.com/website)
 #### [Link to week1 assignments pages](https://github.com/mike007jd/CIM640/tree/master/Week1/readme.md)
 
 ## This is me
