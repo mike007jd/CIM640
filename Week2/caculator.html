@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+    <title>Geometry Calculator</title>
+
+</head>
+
+<body>
+
+    <h1>Calculate the geometry</h1>
+    <form action="" method="post">
+
+        <label for="geometry">Geometry</label>
+        <select name="geometry" id="geometry">
+            <option value="rectangular">rectangular</option>
+            <option value="triangle">triangle</option>
+            <option value="square">square</option>
+            <option value="cicle">circle</option>
+            <option value="cube">cube</option>
+            <option value="cuboid">cuboid</option>
+         
+     
+        </select>
+        <br><br>
+        
+        <label>Pick a Geometry:</label>
+        <br>
+        <input type="number" name="property" value="0" checked id="length">
+        <label for="length">Length</label>
+        <br>
+        <input type="number" name="property" value="0" id="width">
+        <label for="width">width</label>
+        <br>
+        <input type="number" name="property" value="0" id="height">
+        <label for="height">height</label>
+        <br>
+         <input type="number" name="property" value="0" id="height">
+        <label for="radius">radius</label>
+
+<br>
+
+        <input type="submit" value="Submit"> <input type="reset" value="reset">
+        <br>
+        <output form = "numform" name="area"></output>
+
+    </form>
+    <script>
+    
+       function rectangularArea(length,width){
+            
+            var multiply = length * width ;
+            return multiply;
+                    
+        }
+        
+        console.log(rectangularArea(11,18));
+    
+       
+    
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+    
+
+</html>
