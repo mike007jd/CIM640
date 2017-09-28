@@ -38,7 +38,7 @@
              
              }else if(guess == answer){
                  output.innerHTML="you are correct";
-             }else if (guess < answer){
+             }else if (guess < answer && guess>= 0){
                  output.innerHTML="You are too low";
              }else if(guess > answer){
                  output.innerHTML="You are too high";
