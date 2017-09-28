@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>geometrycaculator</title>
+
+    <style>
+        /* Enter CSS below */
+    </style>
+
+ </head>
+
+
+<body>
+
+    <h1>Geometry Caculator</h1>
+
+    <p><i>Geometry Caculator</i></p>
+
+    <form>
+        
+                <label for="geometry">Geometry</label>
+        <select name="geometry" id="geometry">
+            <option value="rectangular">rectangular</option>
+            <option value="triangle">triangle</option>
+            <option value="square">square</option>
+            <option value="cicle">circle</option>
+            <option value="cube">cube</option>
+            <option value="cuboid">cuboid</option>
+         
+     
+        </select>
+        
+        <br>
+
+            <label>Pick a Geometry:</label>
+        <br>
+        <label for="length">Length</label>
+        <input type="number" name="property" value="0" checked id="length">
+        <br>
+        <label for="width">width</label>
+        <input type="number" name="property" value="0" id="width">
+        <br>
+        <label for="height">height</label>
+        <input type="number" name="property" value="0" id="height">
+        <br>
+        <label for="radius">radius</label> 
+        <input type="number" name="property" value="0" id="radius">
+        <br>
+        <button type="button" id="SubmitButton">Submit</button>
+          <button type="button" id="ResetButton">Reset</button>
+    </form>
+<div id="output"></div>
+    <script>
+             var length = document.getElementById("length");
+            var width = document.getElementById("width");
+            function rectangularArea(length, width){
+            var multiply = length * width;
+            return multiply;
+                 var message = "The area of your rectangle is" + multiply;
+                 console.log(message);
+                 var outputText = document.getElementById("output");
+                 outputText.innerHTML = message;
+                 
+                 var getButton = document.getElementById("SubmitButton");
+                 getButton.addEventListener("click", rectangularArea);
+        }
+
+    </script>
+
+</body>
+
+</html>
