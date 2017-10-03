@@ -22,11 +22,9 @@
                 <label for="geometry">Geometry</label>
         <select name="geometry" id="geometry">
             <option value="rectangular">rectangular</option>
-            <option value="triangle">triangle</option>
             <option value="square">square</option>
-            <option value="cicle">circle</option>
+            <option value="circle">circle</option>
             <option value="cube">cube</option>
-            <option value="cuboid">cuboid</option>
          
      
         </select>
@@ -47,24 +45,46 @@
         <label for="radius">radius</label> 
         <input type="number" name="property" value="0" id="radius">
         <br>
-        <button type="button" id="SubmitButton">Submit</button>
-          <button type="button" id="ResetButton">Reset</button>
+        <button type="button" id="submitButton">Submit</button>
     </form>
-<div id="output"></div>
+<div id="outputNum"></div>
     <script>
-             var length = document.getElementById("length");
-            var width = document.getElementById("width");
-            function rectangularArea(length, width){
-            var multiply = length * width;
-            return multiply;
-                 var message = "The area of your rectangle is" + multiply;
-                 console.log(message);
-                 var outputText = document.getElementById("output");
-                 outputText.innerHTML = message;
+        function Caculator(){  
+        var output = document.getElementById("outputNum");
+            
+        var length = document.getElementById("length").value;            
+        var width = document.getElementById("width").value;
+        
+         var height = document.getElementById("height").value;
+            
+        var radius = document.getElementById("radius").value;
+        
+        var option = document.getElementById("geometry").value;
+        
+        var rectangularArea = length * width;
+        var squareArea = length * width;
+        var circleArea = 3.14 * radius;
+        var cubeVolume = length * width * height;
+        
+if(option == "rectangular"){
+    output.innerHTML = "your rectangular area is" + " " + rectangularArea;
+}else if(option == "square"){
+    output.innerHTML = "your rectangular area is" + " " + squareArea;
+}else if(option == "cube"){
+    output.innerHTML = "your rectangular area is" + " " + cubeVolume;
+}else if(option == "circle"){
+    output.innerHTML = "your rectangular area is" + " " + circleArea;
+}        
+    
+}
+        
+        var submitButton = document.getElementById("submitButton");
+        submitButton.addEventListener("click", Caculator);
+                       
+
+                
                  
-                 var getButton = document.getElementById("SubmitButton");
-                 getButton.addEventListener("click", rectangularArea);
-        }
+ 
 
     </script>
 
