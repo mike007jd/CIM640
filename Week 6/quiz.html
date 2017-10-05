@@ -13,14 +13,14 @@
 
 <body>
 
-    <h1>Quiz New</h1>
+    <h1>Interesting Quiz</h1>
 
     <p><i>Answer the following questions</i></p>
 
     <form>
 
 
-        <label for="question1">Is Iceland covered in ice?</label>
+        <label for="question1">Is this year 2017?</label>
         <select name="question1" id="question1" class="question">
             <option value="true">true</option>
             <option value="false">false</option>
@@ -29,25 +29,48 @@
         <br>
         <br>
 
-        <label for="question2">What ocean lies on the east coast of the United States?</label>
+        <label for="question2">Which is not a fruit?</label>
         <select name="question2" id="question2" class="question">
-            <option value="pacific">pacific</option>
-            <option value="eastern">eastern</option>
-            <option value="atlantic">atlantic</option>
-            <option value="indian">indian</option>
+            <option value="Tomato">Tomato</option>
+            <option value="Avocado">Avocado</option>
+            <option value="Peper">Peper</option>
+            <option value="Celery">Celery</option>
+            <option value="Cucumber">Cucumber</option>
         </select>
 
         <br>
         <br>
 
-        <label for="question3">What is the highest mountain on earth?</label>
+        <label for="question3">Who is firt man in space?</label>
         <select name="question3" id="question3" class="question">
-            <option value="kilimanjaro">kilimanjaro</option>
-            <option value="makalu">makalu</option>
-            <option value="mounteverest">Mount Everest</option>
-            <option value="k2">k2</option>
+            <option value="Anakin Skywalker">Anakin Skywalker</option>
+            <option value="Will Smith">Will Smith</option>
+            <option value="Yuri Gagarin">Yuri Gagarin</option>
+            <option value="Neil Alden Armstrong">Neil Alden Armstrong</option>
         </select>
 
+        <br>
+        <br>
+        
+        <label for="question4">Which is the biggest country in the world?</label>
+        <select name="question4" id="question4" class="question">
+            <option value="China">China</option>
+            <option value="Canada">Canada</option>
+            <option value="United State">United State</option>
+            <option value="Russia">Russia</option>
+        </select>
+        
+        <br>
+        <br>
+        
+          <label for="question4">What is the largest animal on earth?</label>
+        <select name="question4" id="question4" class="question">
+            <option value="Bear">Bear</option>
+            <option value="Rabbit">Rabbit</option>
+            <option value="Elephant">Elephant</option>
+            <option value="Whale">Whale</option>
+        </select>
+        
         <br>
         <br>
 
@@ -76,15 +99,29 @@
             if (getResponse[2].value == answers[2]) {
                 counter++;
             }
+            if (getResponse[3].value == answers[3]) {
+                counter++;
+            }
+            if (getResponse[4].value == answers[4]) {
+                counter++;
+            }
             answerRatio = (counter / getResponse.length) * 100;
             console.log("Percent of questions right: " + answerRatio)
-            if (answerRatio > 60) {
-                output.innerHTML = "You are pretty smart";
-            }else{
-                output.innerHTML = "You need some work";
+            
+            if(answerRatio == 100){
+                output.innerHTML = "You are genius!";
+            }
+            if (answerRatio == 80) {
+                output.innerHTML = "You are quite smart!";
+            }
+            if (answerRatio == 60){
+                output.innerHTML = "You are Ok...";
+            }
+            if (answerRatio < 60){
+                output.innerHTML = "Noob!!"
             }
         }
-        var answers = ["false", "atlantic", "mounteverest"];
+        var answers = ["true", "Celery", "Yuri Gagarin", "Russia", "Whale"];
         var getButton = document.getElementById("submitAnswers");
         getButton.addEventListener("click", checkAnswers);
     </script>
