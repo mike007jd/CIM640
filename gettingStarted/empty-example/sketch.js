@@ -5,7 +5,7 @@ var posY = 0;
 function setup(){   
     createCanvas(1000,500);
     background(125);
-    background(0,255,0);
+    background(0,255,255);
                
     // posX = width/2;
     //posY = height/2;
@@ -16,7 +16,7 @@ function setup(){
 
 function draw(){
     stroke(0);
-    strokeWeight(1);
+    strokeWeight(2);
     fill("pink");
     ellipse(posX,posY,100,100);
     fill("red");
