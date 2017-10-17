@@ -20,7 +20,7 @@ var showHideButton;
 function preload() {
     bgImage = loadImage("assets/carnival.jpg");
     bgImage2 = loadImage("assets/party.jpg");
-    hitImage = loadImage("assets/ballons.jpg");
+    hitImage = loadImage("assets/ballons.png");
 }
 
 function setup() {
