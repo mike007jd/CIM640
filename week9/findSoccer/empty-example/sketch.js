@@ -1,33 +1,35 @@
-var counter = 0;
+var posX = 250;
+var posY = 0;
 
+var upDown = false;
 
-function setup() {
-    createCanvas(400, 400);
-    noFill();
+function setup(){
+    createCanvas(500,500);
+
+}
+function draw(){
+    background(255);
+    ellipse(posX,posY,50,50);
+    //posY ++;
+    //console.log(posY);
+    
+    if(posY <= 25){
+        upDown = false;
+    }
+    
+    if(posY >= 475){
+        upDown = true;
+    }
+    
+    if(upDown == true){
+        
+        posY = posY - 5;
+    }
+    
+    if(upDown == false){
+        
+        posY = posY + 5;
+    }
 }
 
 
-function draw() {
-
-    //background(255);
-    frameRate(120);
-    rectMode(CENTER);
-
-    push();
-    translate(width / 2, height / 2);
-    rotate(counter++);
-    scale(2.0);
-    stroke(random(255), random(255), random(255));
-    rect(0, 0, 50, 50);
-
-
-    rect(0, 20, 10,10);
-    pop();
-
-
-    rect(0, 0, 100, 100);
-
-
-
-
-}

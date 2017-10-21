@@ -1,22 +1,66 @@
-var posX = 0;
-var posY = 0;
+var centerX = 0;
+var centerY = 0;
+
+var bgColor;
+
+var hRedColor, hGreenColor, hBlueColor,
+
+var bgImage,bgImage2;
+var bgChange, bgChange2;
+
+var currentBgImage;
+
+var hitZoneX=100;
+var hitZoneY=100;
+
+var ballons;
+
+function preload(){
+    bgImage = loadImage("assets/canival.jpg");
+    bgImage2= loadImage("assets/party.jpg");
+    ballons = loadImage("assets/ballons.png");
+}
 
 
 function setup(){   
-    createCanvas(1000,500);
-    background(125);
-    background(0,255,255);
+    createCanvas(400,400);
+    centerX = width/2;
+    centerY = height/2;
+    
+    bgColor = color(255,0,0);
+    
+    hRedColor = createSlider(0,255,0);
+    hGreenColor = createSlider(0, 255, 0);
+    hBlueColor = createSlider(0, 255, 0);
+    
+    bgChange = createButton("party");
+    bgChange.position(100, 500);
+    bgChange.mousePressed(changeBgFunction);
+
+    bgChange2 = createButton("Carnival");
+    bgChange2.position(0, 500);
+    bgChange2.mousePressed(changeBgFunction2);
+
+    currentBgImage = bgImage;
                
-    // posX = width/2;
-    //posY = height/2;
-    posX = 500;
-    posY = 300;
 }
 
 
 function draw(){
+    background(bgColor);
+    
+    image(currentBgImage,0,0,400,400);
+    
+    centerX = mouseX;
+    centerY = mouseY;
+    fill(255);
+    strokeWeight(1);
+    
+    //布布总脸
     fill("#B97D36");
     ellipse(posX,posY,300,290);
+    
+    var wiggleX = map(mouseX,0,width)
     //布布的外肥脸
     fill("#B97D36");
     arc(posX-70,posY+20,200,200,HALF_PI,PI+QUARTER_PI);
