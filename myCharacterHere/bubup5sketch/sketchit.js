@@ -1,66 +1,73 @@
 var centerX = 0;
 var centerY = 0;
 
-var bgColor;
+var bgChange, bgChange1, hitImage;
 
-var hRedColor, hGreenColor, hBlueColor,
 
-var bgImage,bgImage2;
-var bgChange, bgChange2;
+var bgImage,bgImage2, currentBgImage;
 
-var currentBgImage;
 
 var hitZoneX=100;
 var hitZoneY=100;
 
-var ballons;
+var changeColor = false;
+
+var randomColor = [255,255,255];
+
+var showHide = true;
+
+var showHideButton;
 
 function preload(){
     bgImage = loadImage("assets/canival.jpg");
     bgImage2= loadImage("assets/party.jpg");
-    ballons = loadImage("assets/ballons.png");
+    hitImage = loadImage("assets/ballons.png");
 }
 
 
 function setup(){   
-    createCanvas(400,400);
+    createCanvas(500,500);
     centerX = width/2;
     centerY = height/2;
     
-    bgColor = color(255,0,0);
+    bgChange = createButton("carnival");
+    bgChange.position(10,500);
+    bgChange.mousePressed(bgFunction);
     
-    hRedColor = createSlider(0,255,0);
-    hGreenColor = createSlider(0, 255, 0);
-    hBlueColor = createSlider(0, 255, 0);
-    
-    bgChange = createButton("party");
-    bgChange.position(100, 500);
-    bgChange.mousePressed(changeBgFunction);
+    bgChange1 = createButton('party');
+    bgChange1.position(100, 500);
+    bgChange1.mousePressed(bgFunction1);
 
-    bgChange2 = createButton("Carnival");
-    bgChange2.position(0, 500);
-    bgChange2.mousePressed(changeBgFunction2);
+    showHideButton = createButton('show hide');
+    showHideButton.position(200, 500);
+    showHideButton.mousePressed(showHideFunction);
 
     currentBgImage = bgImage;
+    
+  
                
 }
 
 
 function draw(){
-    background(bgColor);
+   
+    image(currentBgImage, 0, 0);
+
+    if (changeColor == true) {
+        randomColor[0] = random(256);
+        randomColor[1] = random(256);
+        randomColor[2] = random(256);
+
+    }
+
+
+    if (showHide == true) {
+        fill(randomColor[0], randomColor[1], randomColor[2]);
     
-    image(currentBgImage,0,0,400,400);
-    
-    centerX = mouseX;
-    centerY = mouseY;
-    fill(255);
     strokeWeight(1);
-    
     //布布总脸
     fill("#B97D36");
     ellipse(posX,posY,300,290);
-    
-    var wiggleX = map(mouseX,0,width)
     //布布的外肥脸
     fill("#B97D36");
     arc(posX-70,posY+20,200,200,HALF_PI,PI+QUARTER_PI);
@@ -107,11 +114,44 @@ function draw(){
     arc(posX+105,posY-100,50,100,PI+QUARTER_PI,TWO_PI);
     arc(posX-105,posY-100,50,100,PI,PI+HALF_PI+QUARTER_PI);
     
+     }
     
-    
-    
+    strokeWeight(1);
+
+    ellipse(hitZoneX, hitZoneY, 10, 10);
+    var hitZoneDist = dist(mouseX, mouseY, hitZoneX, hitZoneY);
+
+    //console.log(hitZoneDist);
+
+    if (hitZoneDist < 10) {
+        image(hitImage, hitZoneX - 100, hitZoneY - 100);
+
+    }
+
+    ellipse(325, 325, 10, 10);
+    if (mouseX > 300 && mouseX < 350 && mouseY > 300 && mouseY < 350) {
+        changeColor = true;
+    } else {
+        changeColor = false;
+    }
+
+}
+function bgFunction() {
+    currentBgImage = bgImage;
+}
+
+function bgFunction1() {
+    currentBgImage = bgImage2;
+}
+
+function showHideFunction() {
+    if (showHide == true) {
+        showHide = false;
+    } else {
+        showHide = true;
+    }
+}
     
     
 
    
-}
