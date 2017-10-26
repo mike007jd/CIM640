@@ -151,7 +151,3 @@ function showHideFunction() {
         showHide = true;
     }
 }
-    
-    
-
-   
