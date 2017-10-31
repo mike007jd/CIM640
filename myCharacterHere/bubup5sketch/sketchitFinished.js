@@ -11,34 +11,37 @@ var bgChange, bgChange2;
 
 var currentBgImage;
 
-var hitZoneX = 100;
-var hitZoneY = 100;
+var hitZoneX = 200;
+var hitZoneY = 200;
 
-var ballons;
+var hitZone1X = 400;
+var hitZone1Y = 200;
+
+var hitZone2X = 600;
+var hitZone2Y = 200;
+
+var hand;
 
 function preload() {
-    bgImage = loadImage("assets/carnival.jpg");
-    bgImage2 = loadImage("assets/party.jpg");
-    ballons = loadImage("assets/ballons.png");
+    bgImage = loadImage("assets/daytime.jpg");
+    bgImage2 = loadImage("assets/bedtime.jpg");
+    hand = loadImage("assets/ballons.png");
 }
 
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(800, 400);
     centerX = width / 2;
     centerY = height / 2;
 
     bgColor = color(255, 0, 0);
 
-    hRedColor = createSlider(0, 255, 0);
-    hGreenColor = createSlider(0, 255, 0);
-    hBlueColor = createSlider(0, 255, 0);
 
-    bgChange = createButton("party");
-    bgChange.position(100, 500);
+    bgChange = createButton("bedtime");
+    bgChange.position(400, 500);
     bgChange.mousePressed(changeBgFunction);
 
-    bgChange2 = createButton("Carnival");
-    bgChange2.position(0, 500);
+    bgChange2 = createButton("daytime");
+    bgChange2.position(300, 500);
     bgChange2.mousePressed(changeBgFunction2);
 
     currentBgImage = bgImage;
@@ -47,7 +50,7 @@ function setup() {
 function draw() {
     background(bgColor);
 
-    image(currentBgImage, 0, 0, 400, 400);
+    image(currentBgImage, 0, 0, 800, 400);
 
     //console.log("mouseX: " + mouseX + " mouseY: " + mouseY);
     centerX = mouseX;
@@ -56,33 +59,66 @@ function draw() {
     strokeWeight(1);
 
     //face
+    noStroke();
     fill("#B97D36");
-    ellipse(centerX, centerY, 300, 290);
+    ellipse(centerX, centerY, 150, 145);
 
-    var wiggleX = map(mouseX, 0, width, -10, 10);
+    var wiggleX = map(mouseX, 0, width, -5, 5);
     //nose
     noStroke();
     strokeWeight
     fill("black");
-    ellipse(centerX + wiggleX,centerY+35,30,30);
+    ellipse(centerX + wiggleX,centerY+17,15,15);
     noFill();
     stroke(0);
-    strokeWeight(4);
-    arc(centerX + wiggleX,centerY+40,120,120,QUARTER_PI,HALF_PI+QUARTER_PI);
-    arc(centerX + wiggleX,centerY+60,20,20,QUARTER_PI,HALF_PI+QUARTER_PI);
+    strokeWeight(2);
+    arc(centerX + wiggleX,centerY+20,60,60,QUARTER_PI,HALF_PI+QUARTER_PI);
+    arc(centerX + wiggleX,centerY+30,10,10,QUARTER_PI,HALF_PI+QUARTER_PI);
     //eyse
-    ellipse(centerX - 10 + wiggleX, centerY - 10, 10, 20);
-    ellipse(centerX + 10 + wiggleX, centerY - 10, 10, 20);
-    rectMode(CENTER);
-    rect(centerX, centerY + 30, 50, 15, 5);
-    rect(centerX, centerY + 30, 50, 1, 1);
-
+    
+    stroke(0);
+    strokeWeight(2);
+    fill("white");
+    ellipse(centerX-7, centerY-30, 13, 30);
+    ellipse(centerX+7, centerY-30, 13, 30);
     noFill();
-    stroke(hRedColor.value(), hGreenColor.value(), hBlueColor.value());
-    strokeWeight(4);
-    arc(centerX, centerY, 100, 100, 0, PI);
-    strokeWeight(30);
-    arc(centerX, centerY, 100, 100, PI, TWO_PI);
+    stroke(0);
+    strokeWeight(2);
+    arc(centerX,centerY+10,50,50,PI+QUARTER_PI,PI+HALF_PI+QUARTER_PI);
+    noStroke();
+    fill("grey");
+    ellipse(centerX-7 + wiggleX,centerY-40,10,10);
+    ellipse(centerX+7 + wiggleX,centerY-40,10,10);
+    
+    //ear
+    
+     fill("#B97D36");
+    arc(centerX+45,centerY-40,50,100,PI+QUARTER_PI,PI+QUARTER_PI);
+    arc(centerX-45,centerY-40,50,100,HALF_PI+QUARTER_PI,PI+HALF_PI+QUARTER_PI);
+     stroke(0);
+    strokeWeight(2);
+    arc(centerX+45,centerY-50,25,50,PI+QUARTER_PI,TWO_PI);
+    arc(centerX-45,centerY-50,25,50,PI,PI+HALF_PI+QUARTER_PI);
+    
+    //inner face
+    
+     noFill();
+    stroke(0);
+    strokeWeight(2);
+    arc(centerX+45 + wiggleX,centerY+15,50,50,HALF_PI,PI+HALF_PI);
+    arc(centerX-45 + wiggleX,centerY+15,50,50,PI+HALF_PI,HALF_PI);
+    
+    //out face
+    
+    fill("#B97D36");
+    arc(centerX-35,centerY+10,100,100,HALF_PI,PI+QUARTER_PI);
+    arc(centerX+35,centerY+10,100,100,PI+HALF_PI+QUARTER_PI,HALF_PI);
+    //red face
+    
+    noStroke();
+    fill("red");
+    ellipse(centerX-50,centerY+17,25,25);
+    ellipse(centerX+50,centerY+17,25,25);
 
 //    if (mouseX == hitZoneX && mouseY == hitZoneY) {
 //        console.log("I am in the zone!!");
@@ -90,14 +126,42 @@ function draw() {
 
     var hitZoneDist = dist(hitZoneX,hitZoneY,mouseX,mouseY);
     console.log("hitZoneDist: " + hitZoneDist);
+    
+    var hitZoneDist1 = dist(hitZone1X,hitZone1Y,mouseX,mouseY);
+    console.log("hitZoneDist: " + hitZoneDist);
+    
+    var hitZoneDist2 = dist(hitZone2X,hitZone2Y,mouseX,mouseY);
+    console.log("hitZoneDist: " + hitZoneDist);
 
     if(hitZoneDist <= 5){
        console.log("We are totally in the zone!");
-        image(ballons,0,0);
+        image(hand,0,0);
        }
 
+    stroke(0);
     strokeWeight(1);
+    noFill();
     ellipse(hitZoneX,hitZoneY, 10,10);
+    
+     if(hitZoneDist1 <= 5){
+       console.log("We are totally in the zone!");
+        image(hand,0,0);
+       }
+
+    stroke(0);
+    strokeWeight(1);
+    noFill();
+    ellipse(hitZone1X,hitZone1Y, 10,10);
+    
+     if(hitZoneDist2 <= 5){
+       console.log("We are totally in the zone!");
+        image(hand,0,0);
+       }
+
+    stroke(0);
+    strokeWeight(1);
+    noFill();
+    ellipse(hitZone2X,hitZone2Y, 10,10);
 
 }
 
