@@ -1,16 +1,17 @@
-var bear;
+var bubuBear;
 
 
-var bearImage;
-
+function preload(){
+    bubu_sheet
+}
 function setup() {
 createCanvas(800,600);
 
-bearImage = loadImage("assets/bear.png");
 
-bear = createSprite(width/2, height/2);
-bear.maxSpeed = 6;
-bear.friction = .98;
+
+bubuBear = createSprite(width/2, height/2);
+bubuBear.maxSpeed = 6;
+bearBear.friction = .98;
 
 bear.addImage("normal", bearImage);
 bear.addImage("thrust", bearImage);
