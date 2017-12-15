@@ -1,7 +1,6 @@
 var bubu;
 var aligator;
 var fish;
-var bubuImage,aligatorImage,fishImage;
 var bubuX, bubuY;
 var aligatorNum = 15;
 var aligatorX = [];
@@ -14,16 +13,16 @@ var alpha, fishX, fishY;
 var aimX, aimY;
 var gameOver, win;
 
-function preload(){
-   bubu(bubuX,bubuY,30,30);
-    bubu.addImage("assets/bubu.png");
-}
 
+//function preload(){
+//    
+//    bubu = createSprite(bubuX,bubuY);
+//    bubu.addImage("assets/bubu.png");
+//}
 function setup() {
     createCanvas(800, 600);
     rectMode(CENTER);
     initialization();
-    
 
 
 }
@@ -31,7 +30,7 @@ function setup() {
 function draw() {
     noStroke();
 
-    background("yellow");
+    background("orange");
     fill("green");
     rect(width * 0.5, height * 0.5, width * 0.9, height);
 
@@ -47,6 +46,8 @@ function draw() {
             ellipse(aligatorX[i], aligatorY[i], aligatorSize[i] * 2, aligatorSize[i] * 2);
         }
 
+        fill("brown");
+        rect(bubuX, bubuY, 30, 30);
 
         fill(255);
         textSize(25);
@@ -84,6 +85,9 @@ function draw() {
             if (dist(bubuX, bubuY, fishX[i], fishY[i]) < 30) alpha[i] = 0;
         }
 
+        fill("brown");
+        rect(bubuX, bubuY, 30, 30);
+        
         if (cNum > 0) {
             bubuX += (aimX - bubuX) / 30;
             bubuY += (aimY - bubuY) / 30;
