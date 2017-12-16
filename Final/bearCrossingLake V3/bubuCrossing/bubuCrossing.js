@@ -14,11 +14,7 @@ var aimX, aimY;
 var gameOver, win;
 
 
-//function preload(){
-//    
-//    bubu = createSprite(bubuX,bubuY);
-//    bubu.addImage("assets/bubu.png");
-//}
+
 function setup() {
     createCanvas(800, 600);
     rectMode(CENTER);
@@ -36,7 +32,7 @@ function draw() {
 
     fill(255);
     textSize(40);
-    text("Lake Osceola", width * 0.5 - textWidth("Lake Oceola") / 2, height *0.4);
+    text("Lake Osceola", width * 0.5 - textWidth("Lake Oceola") / 2, height * 0.4);
 
 
     if (gameOver || win) {
@@ -87,14 +83,14 @@ function draw() {
 
         fill("brown");
         rect(bubuX, bubuY, 30, 30);
-        
+
         if (cNum > 0) {
             bubuX += (aimX - bubuX) / 30;
             bubuY += (aimY - bubuY) / 30;
         }
         if (bubuX > width * 0.95 + 30 / 2 & !win) win = true;
     }
-     drawSprites();
+    drawSprites();
 }
 
 function initialization() {
