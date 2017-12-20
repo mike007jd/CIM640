@@ -8,7 +8,7 @@ var aligatorY = [];
 var vy = [];
 var aligatorSize = [];
 var fishNum = 5;
-var cNum;
+var fNum;
 var alpha, fishX, fishY;
 var aimX, aimY;
 var gameOver, win;
@@ -84,7 +84,7 @@ function draw() {
         fill("brown");
         rect(bubuX, bubuY, 30, 30);
 
-        if (cNum > 0) {
+        if (fNum > 0) {
             bubuX += (aimX - bubuX) / 30;
             bubuY += (aimY - bubuY) / 30;
         }
@@ -96,7 +96,7 @@ function draw() {
 function initialization() {
     bubuX = width * 0.025;
     bubuY = random(30, height - 30);
-    cNum = 0;
+    fNum = 0;
     gameOver = false;
     win = false;
     alpha = [];
@@ -118,12 +118,12 @@ function initialization() {
 }
 
 function mousePressed() {
-    if (!gameOver & mouseX > width * 0.05 & mouseY < width & mouseY > 0 & mouseY < height & cNum < 5) {
-        fishX[cNum] = mouseX;
-        fishY[cNum] = mouseY;
+    if (!gameOver & mouseX > width * 0.05 & mouseY < width & mouseY > 0 & mouseY < height & fNum < 5) {
+        fishX[fNum] = mouseX;
+        fishY[fNum] = mouseY;
         aimX = mouseX;
         aimY = mouseY;
-        cNum++;
+        fNum++;
     }
 }
 
