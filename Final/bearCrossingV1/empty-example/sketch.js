@@ -25,6 +25,7 @@ function draw() {
         bubu.attractionPoint(0.5, mouseX, mouseY);
     }
       textAlign(CENTER);
-  text("Click to move", width/2, 20);
+    textSize(40);
+    text("Click to move", width/2, 60);
     drawSprites();
 }

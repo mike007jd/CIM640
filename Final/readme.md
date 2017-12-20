@@ -12,6 +12,9 @@
 # FIRST CODE PLAN
 ### The game would be a crossing road like game. My character bear would start from the bottom of the canvas and then move up to the top in order to win the game. Crocodiles would move from cross the canvas in rows. First I will make the bear moving. And have crocdiles moving.
 
+# Final Code Plan
+### I am struggling with the animation and Sprite. Not as I expected. So I shift my focus away from art assets. I focus on having the game function well. To make it able to play first. I would make the bear rectangle, fish triangle, and aligators circle. 5 limits of fish and numbers of aligator across. 
+
 
 
 

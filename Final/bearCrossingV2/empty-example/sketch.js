@@ -2,15 +2,14 @@ var bubu;
 var aligator;
 var fish;
 var bubuX, bubuY;
-var aligatorNum = 15;
+var aligatorNum = 5;
 var aligatorX = [];
 var aligatorY = [];
 var vy = [];
 var aligatorSize = [];
 var fishNum = 5;
-var cNum;
-var alpha, fishX, fishY;
-var aimX, aimY;
+var fNum;
+var fishX, fishY;
 var gameOver, win;
 
 
@@ -32,9 +31,7 @@ function draw() {
 
     fill(255);
     textSize(40);
-    text("Lake Osceola", width * 0.5 - textWidth("Lake Oceola") / 2, height * 0.4);
-
-
+    text("Click to move",width/2-textWidth("Click to move")/2, 40);
     if (gameOver || win) {
         for (var i = 0; i < aligatorNum; i++) {
             noStroke();
@@ -48,13 +45,11 @@ function draw() {
         fill(255);
         textSize(25);
         if (gameOver) {
-            text("Bubu dead!", width * 0.5 - textWidth("Bubu dead!") / 2, height / 2);
-            text("PRESS ENTER TO Revive", width * 0.5 - textWidth("PRESS ENTER TO Revive") / 2, height * 0.6);
+            text("PRESS ENTER TO Revive", width /2 - textWidth("PRESS ENTER TO Revive") / 2, height /2);
         }
 
         if (win) {
-            text("You save Bubu!Hero!", width * 0.5 - textWidth("You save Bubu!Hero!") / 2, height * 0.5);
-            text("PRESS ENTER TO DO IT AGAIN", width * 0.5 - textWidth("PRESS ENTER TO DO IT AGAIN") / 2, height * 0.6);
+            text("PRESS ENTER TO DO IT AGAIN", width * 0.5 - textWidth("PRESS ENTER TO DO IT AGAIN") / 2, height /2);
         }
     } else {
         for (var i = 0; i < aligatorNum; i++) {
@@ -84,11 +79,11 @@ function draw() {
         fill("brown");
         rect(bubuX, bubuY, 30, 30);
 
-        if (cNum > 0) {
-            bubuX += (aimX - bubuX) / 30;
-            bubuY += (aimY - bubuY) / 30;
+        if (fNum > 0) {
+            bubuX += (mouseX - bubuX) / 30;
+            bubuY += (mouseY - bubuY) / 30;
         }
-        if (bubuX > width * 0.95 + 30 / 2 & !win) win = true;
+        if (bubuX > width * 0.95 + 30 / 2 ) win = true;
     }
     drawSprites();
 }
@@ -96,7 +91,7 @@ function draw() {
 function initialization() {
     bubuX = width * 0.025;
     bubuY = random(30, height - 30);
-    cNum = 0;
+    fNum = 0;
     gameOver = false;
     win = false;
     alpha = [];
@@ -118,12 +113,10 @@ function initialization() {
 }
 
 function mousePressed() {
-    if (!gameOver & mouseX > width * 0.05 & mouseY < width & mouseY > 0 & mouseY < height & cNum < 5) {
-        fishX[cNum] = mouseX;
-        fishY[cNum] = mouseY;
-        aimX = mouseX;
-        aimY = mouseY;
-        cNum++;
+    if (!gameOver & mouseX > width * 0.05 & mouseY < width & mouseY > 0 & mouseY < height & fNum < 5) {
+        fishX[fNum] = mouseX;
+        fishY[fNum] = mouseY;
+        fNum++;
     }
 }
 
