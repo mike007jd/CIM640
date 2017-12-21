@@ -2,6 +2,8 @@ var bubu;
 var aligator;
 var fish;
 var river;
+var riverAnimation;
+var bubuAnimation;
 var bubuX, bubuY;
 var aligatorNum = 15;
 var aligatorX = [];
@@ -15,7 +17,10 @@ var aimX, aimY;
 var gameOver, win;
 
 
-
+function preload(){
+   riverAnimation = loadAnimation("assets/river1.png","assets/river2.png","assets/river3.png","assets/river4.png");
+    bubuAnimation = loadAnimation("assets/bubu1.png","assets/bubu1.png","assets/bubu2.png","assets/bubu3.png","assets/bubu4.png","assets/bubu5.png");
+}
 function setup() {
     createCanvas(800, 600);
     rectMode(CENTER);
@@ -23,10 +28,10 @@ function setup() {
     
     //could not move sprites, save for later
     
-    bubu = createSprite(bubuX,bubuY); bubu.addAnimation("swim","assets/bubu1.png","assets/bubu1.png","assets/bubu2.png","assets/bubu3.png","assets/bubu4.png","assets/bubu5.png");
+    bubu = createSprite(bubuX,bubuY); bubu.addAnimation("swim",bubuAnimation);
     
     river= createSprite(width/2,height/2);
-    river.addAnimation("normal","assets/river1.png","assets/river2.png","assets/river3.png","assets/river4.png");
+    river.addAnimation("normal",riverAnimation);
 
 }
 
@@ -44,7 +49,7 @@ function draw() {
     textSize(15);
     text("Help bubu across the river to the right orange shore",width /2 - textWidth("Help bubu across the river to the right orange shore")/2 ,40);
     text("Click to drop the triangle fish to attract bubu",width /2 - textWidth("Click to drop the triangle fish to attract bubu")/2 ,60);
-    text("Avoid the dangerous white circle",width /2 - textWidth("Avoid the dangerous white circle")/2 ,60);
+    text("Avoid the dangerous white circle",width /2 - textWidth("Avoid the dangerous white circle")/2 ,80);
 
     if (gameOver || win) {
         for (var i = 0; i < aligatorNum; i++) {
